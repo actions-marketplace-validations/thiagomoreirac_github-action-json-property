@@ -11,7 +11,7 @@ function getNestedObject(nestedObj: any, pathArr: string[]) {
 }
 
 async function run() {
-  const path: string = core.getInput('path');
+  const path: string = path.join(__dirname, core.getInput('path'));
   const prop: string[] = core.getInput('prop_path').split('.');
   try {
     const buffer = await readFileAsync(path);
