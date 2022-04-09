@@ -1,5 +1,5 @@
-name: 'Get JSON Property'
-description: 'Simple GitHub Action to read a specified property from a JSON file.'
+name: 'Get JSON Property (v2)'
+description: 'Simple GitHub Action to read a specified property from a JSON file.(v2)'
 author: 'notiz.dev'
 inputs:
   path:
