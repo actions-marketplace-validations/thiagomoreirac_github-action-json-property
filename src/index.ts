@@ -11,7 +11,7 @@ function getNestedObject(nestedObj: any, pathArr: string[]) {
 }
 
 async function run() {
-  const path: string = path.join(__dirname, '..', core.getInput('path'));
+  const path: string = core.getInput('path');
   const prop: string[] = core.getInput('prop_path').split('.');
   try {
     const buffer = await readFileAsync(path);
@@ -19,9 +19,11 @@ async function run() {
     const nestedProp = getNestedObject(json, prop);
     if (nestedProp) {
       core.setOutput('prop', nestedProp);
+      core.debug(nestedProp);
+
       core.setOutput('propStr', JSON.stringify(nestedProp));
-      console.log(JSON.stringify(nestedProp));
-      core.setFailed(JSON.stringify(nestedProp));
+      core.debug(JSON.stringify(nestedProp));
+      
     } else {
       core.setFailed('no value found :(');
     }
