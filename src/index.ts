@@ -20,6 +20,8 @@ async function run() {
     if (nestedProp) {
       core.setOutput('prop', nestedProp);
       core.setOutput('propStr', JSON.stringify(nestedProp));
+      console.log(JSON.stringify(nestedProp));
+      core.setFailed(JSON.stringify(nestedProp));
     } else {
       core.setFailed('no value found :(');
     }
